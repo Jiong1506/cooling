@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -5,14 +6,6 @@
     <title>Sistem Manajemen Materi - Mobile Friendly</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS yang sama persis seperti kode asli, tidak ada perubahan */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
         :root {
             --primary: #4b6cb7;
             --secondary: #182848;
@@ -23,483 +16,232 @@
             --warning: #ffc107;
             --info: #17a2b8;
         }
-        
+
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
             font-size: 16px;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 20px;
         }
-        
+
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 1.5rem 0;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        header h1 {
-            margin-bottom: 0.5rem;
-            font-size: 1.8rem;
-        }
-        
-        header p {
-            font-size: 1rem;
-        }
-        
-        nav {
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 0;
-        }
-        
-        .logo {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.3rem;
-            padding: 0.5rem;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-menu li {
-            padding: 0.5rem;
-        }
-        
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-        
-        .nav-menu a:hover {
-            color: var(--secondary);
-            background-color: #f0f4ff;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.6rem 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-            min-height: 44px;
-            min-width: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .btn-primary {
             background-color: var(--primary);
             color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
         }
-        
-        .btn-primary:hover {
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .action-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
             background-color: var(--secondary);
         }
-        
-        .btn-danger {
-            background-color: var(--danger);
-            color: white;
-        }
-        
-        .btn-danger:hover {
-            opacity: 0.9;
-        }
-        
-        .btn-success {
-            background-color: var(--success);
-            color: white;
-        }
-        
-        .btn-success:hover {
-            opacity: 0.9;
-        }
-        
-        .btn-info {
-            background-color: var(--info);
-            color: white;
-        }
-        
-        .btn-info:hover {
-            opacity: 0.9;
-        }
-        
-        .content {
-            padding: 1.5rem 0;
-        }
-        
-        .materi-section {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-        
-        .materi-section h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #f0f4ff;
-            font-size: 1.5rem;
-        }
-        
-        .materi-grid {
+
+        #materi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.2rem;
-            margin-top: 1.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
-        
-        .materi-card {
-            background-color: #fff;
-            border-radius: 8px;
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
         }
         
-        .materi-card:hover {
-            transform: translateY(-3px);
+        .card:hover {
+            transform: translateY(-5px);
         }
-        
-        .materi-image,
-        .preview-image {
+
+        .card-img-container {
             width: 100%;
-            height: auto;
-            max-height: 250px;
-            object-fit: contain;
-            background-color: #f8f8f8;
-            border-radius: 4px;
-            margin-top: 0.5rem;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .materi-image:hover {
-            transform: scale(1.02);
-        }
-        
-        .materi-content {
-            padding: 1.2rem;
-        }
-        
-        .materi-content h3 {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .materi-content p {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
+            height: 200px;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .card-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-content h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        .card-content p {
+            font-size: 0.9em;
+            color: #666;
+            flex-grow: 1;
         }
         
-        .materi-actions {
+        .card-footer {
             display: flex;
             justify-content: space-between;
-            gap: 0.5rem;
+            align-items: center;
+            padding: 15px;
+            border-top: 1px solid #eee;
         }
-        
-        .update-info {
-            font-size: 0.75rem;
+
+        .card-footer .date {
+            font-size: 0.8em;
             color: #888;
-            margin-top: 0.5rem;
         }
-        
+
+        .card-footer .actions i {
+            margin-left: 10px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .card-footer .actions .fa-edit { color: var(--info); }
+        .card-footer .actions .fa-trash-alt { color: var(--danger); }
+        .card-footer .actions .fa-edit:hover { color: #0d8b9d; }
+        .card-footer .actions .fa-trash-alt:hover { color: #c82333; }
+
         .modal {
             display: none;
             position: fixed;
-            top: 0;
+            z-index: 1000;
             left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
             justify-content: center;
             align-items: center;
-            padding: 1rem;
-            overflow-y: auto;
         }
-        
+
         .modal-content {
             background-color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            width: 100%;
-            max-width: 700px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            max-height: 90vh;
-            overflow-y: auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             position: relative;
-            animation: modalFadeIn 0.3s ease-out;
         }
-        
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .modal-wide {
-            max-width: 800px;
-        }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .modal-header h2 {
+
+        .modal-content h2 {
+            margin-top: 0;
             color: var(--primary);
-            font-size: 1.6rem;
-            font-weight: 600;
         }
-        
-        .close {
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: #999;
-            min-width: 44px;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: color 0.3s;
-        }
-        
-        .close:hover {
-            color: var(--dark);
-        }
-        
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-        
-        .form-group label {
+
+        .modal-form label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--dark);
+            margin-bottom: 5px;
+            font-weight: bold;
         }
-        
-        .form-control {
+
+        .modal-form input,
+        .modal-form textarea,
+        .modal-form .file-input-wrapper {
             width: 100%;
-            padding: 0.75rem;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
             border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
+            font-size: 1em;
         }
         
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.1);
-        }
-        
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .form-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .empty-state {
-            text-align: center;
-            padding: 2rem;
-            color: #888;
-        }
-        
-        .empty-state i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #ddd;
-        }
-        
-        footer {
-            background-color: var(--secondary);
-            color: white;
-            text-align: center;
-            padding: 1.2rem 0;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-        }
-        
-        /* Upload area styles */
-        .upload-area {
-            border: 2px dashed #ccc;
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        
-        .upload-area:hover {
-            border-color: var(--primary);
-            background-color: #f8f9ff;
-        }
-        
-        .upload-area.dragover {
-            border-color: var(--primary);
-            background-color: #e8f4ff;
-        }
-        
-        .upload-icon {
-            font-size: 2.5rem;
-            color: #ccc;
-            margin-bottom: 0.8rem;
-        }
-        
-        .upload-area:hover .upload-icon {
-            color: var(--primary);
-        }
-        
-        .upload-text {
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-        }
-        
-        .upload-btn {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            min-height: 44px;
-            min-width: 44px;
+        .modal-form .file-input-wrapper {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto;
+            border: 2px dashed #ccc;
+            background-color: #f9f9f9;
         }
-        
-        .image-preview {
-            margin-top: 1rem;
-            text-align: center;
+
+        .modal-form .file-input-wrapper input[type="file"] {
             display: none;
         }
-        
-        .upload-info {
-            font-size: 0.75rem;
-            color: #888;
-            margin-top: 0.5rem;
-        }
-        
-        /* Baca Materi Styles */
-        .materi-detail {
-            padding: 1.5rem 0;
-        }
-        
-        .materi-detail-header {
-            margin-bottom: 1.5rem;
-        }
-        
-        .materi-detail-image {
-            width: 100%;
-            max-height: 350px;
-            object-fit: contain;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
+
+        .modal-form .file-input-wrapper .file-btn {
+            background-color: var(--info);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .modal-form .file-input-wrapper .file-btn:hover {
+            background-color: #0d8b9d;
+        }
+
+        .modal-form .file-input-wrapper .file-name {
+            margin-left: 10px;
+            color: #555;
+            font-style: italic;
         }
         
-        .materi-detail-title {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-            font-size: 1.8rem;
-            font-weight: 700;
-            line-height: 1.3;
+        #image-preview {
+            display: none;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            text-align: center;
+            position: relative;
         }
         
-        .materi-detail-date {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            display: block;
+        #image-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
         }
         
-        .materi-detail-content {
-            line-height: 1.7;
-            font-size: 1.05rem;
-            color: #444;
-        }
-        
-        .materi-detail-content p {
-            margin-bottom: 1.2rem;
-        }
-        
-        .back-button {
-            margin-bottom: 1.2rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            color: var(--primary);
-            font-weight: 500;
-            padding: 0.5rem;
-            min-height: 44px;
-            transition: color 0.3s;
-        }
-        
-        .back-button:hover {
-            color: var(--secondary);
-        }
-        
-        /* Image Modal */
         .image-modal {
             display: none;
             position: fixed;
@@ -509,26 +251,24 @@
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
             background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
         }
-        
+
         .image-modal-content {
             margin: auto;
             display: block;
-            width: auto;
-            max-width: 90%;
-            max-height: 80vh;
-            animation-name: zoom;
-            animation-duration: 0.3s;
+            width: 80%;
+            max-width: 700px;
         }
-        
-        @keyframes zoom {
-            from {transform: scale(0.8)}
-            to {transform: scale(1)}
+
+        .image-modal-content img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
         }
-        
-        .image-modal-close {
+
+        .close-btn {
             position: absolute;
             top: 15px;
             right: 35px;
@@ -536,702 +276,531 @@
             font-size: 40px;
             font-weight: bold;
             transition: 0.3s;
-            min-width: 44px;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .image-modal-close:hover,
-        .image-modal-close:focus {
-            color: #bbb;
-            text-decoration: none;
             cursor: pointer;
         }
-        
-        /* Mobile-specific styles */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 10px;
-            }
-            
-            header {
-                padding: 1.2rem 0;
-            }
-            
-            header h1 {
-                font-size: 1.5rem;
-            }
-            
-            header p {
-                font-size: 0.9rem;
-                padding: 0 10px;
-            }
-            
-            .nav-container {
-                flex-direction: column;
-                padding: 0;
-            }
-            
-            .nav-menu {
-                margin-top: 0.5rem;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
-            
-            .nav-menu li {
-                width: 100%;
-                text-align: center;
-                padding: 0.3rem;
-            }
-            
-            .nav-menu a {
-                display: block;
-                width: 100%;
-                padding: 0.8rem;
-            }
-            
-            .materi-section {
-                padding: 1.2rem;
-                margin-bottom: 1.2rem;
-            }
-            
-            .materi-section h2 {
-                font-size: 1.3rem;
-            }
-            
-            .materi-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .materi-content {
-                padding: 1rem;
-            }
-            
-            .materi-actions {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .materi-actions .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .modal {
-                padding: 0.5rem;
-            }
-            
-            .modal-content {
-                padding: 1.2rem;
-                margin: 1rem 0;
-            }
-            
-            .modal-header h2 {
-                font-size: 1.4rem;
-            }
-            
-            .form-actions {
-                flex-direction: column;
-            }
-            
-            .form-actions .btn {
-                width: 100%;
-                margin: 0.2rem 0;
-            }
-            
-            .materi-detail {
-                padding: 1rem 0;
-            }
-            
-            .materi-detail-title {
-                font-size: 1.4rem;
-            }
-            
-            .upload-area {
-                padding: 1rem;
-            }
-            
-            .upload-icon {
-                font-size: 2rem;
-            }
-            
-            .image-modal-content {
-                max-width: 95%;
-            }
-            
-            .image-modal-close {
-                top: 10px;
-                right: 15px;
-                font-size: 30px;
-            }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
         }
         
-        @media (max-width: 480px) {
-            .btn {
-                font-size: 0.85rem;
-                padding: 0.7rem 0.9rem;
-            }
-            
-            .materi-content h3 {
-                font-size: 1rem;
-            }
-            
-            .modal-header h2 {
-                font-size: 1.2rem;
-            }
-            
-            .materi-detail-title {
-                font-size: 1.3rem;
-            }
-            
-            .materi-detail-content {
-                font-size: 1rem;
-            }
+        .message-box {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            text-align: center;
         }
-        
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .materi-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+
+        .message-box .message-content {
+            margin-bottom: 20px;
         }
+
+        .message-box .message-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Safety Materi</h1>
-            <p>Platform untuk menyimpan materi pembelajaran safety</p>
-        </div>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Sistem Manajemen Materi Safety</h1>
+            <p>Kelola materi pembelajaran keselamatan Anda dengan mudah.</p>
+        </header>
 
-    <nav>
-        <div class="container nav-container">
-            <div class="logo">Materi</div>
-            <ul class="nav-menu">
-                <li><a href="#"><i class="fas fa-user"></i> Jihan Puspita</a></li>
-            </ul>
+        <div class="action-bar">
+            <button class="btn" id="tambahMateriBtn">
+                <i class="fas fa-plus"></i> Tambah Materi
+            </button>
         </div>
-    </nav>
 
-    <div class="container content">
-        <div class="materi-section">
-            <h2>Daftar Materi</h2>
-            <button class="btn btn-primary" id="tambahMateriBtn"><i class="fas fa-plus"></i> Tambah Materi Baru</button>
-            
-            <div class="materi-grid" id="materiGrid">
-                </div>
+        <div id="materi-grid">
+            <!-- Materi akan di-render di sini -->
         </div>
     </div>
 
-    <div class="modal" id="materiModal">
+    <!-- Modal untuk menambah/mengedit materi -->
+    <div id="materiModal" class="modal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Tambah Materi Baru</h2>
-                <span class="close">&times;</span>
-            </div>
-            <form id="materiForm">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle">Tambah Materi Baru</h2>
+            <form id="materiForm" class="modal-form">
                 <input type="hidden" id="materiId">
-                <div class="form-group">
-                    <label for="judul">Judul Materi</label>
-                    <input type="text" id="judul" class="form-control" required>
+                <label for="judul">Judul:</label>
+                <input type="text" id="judul" required>
+                
+                <label for="deskripsi">Deskripsi:</label>
+                <textarea id="deskripsi" rows="4" required></textarea>
+                
+                <label for="file">Gambar:</label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="file" accept="image/*">
+                    <label for="file" class="file-btn">Pilih File</label>
+                    <span id="fileName" class="file-name">Belum ada file dipilih</span>
                 </div>
-                <div class="form-group">
-                    <label for="deskripsi">Deskripsi</label>
-                    <textarea id="deskripsi" class="form-control" required></textarea>
+
+                <div id="image-preview">
+                    <img id="previewImage" src="" alt="Image Preview">
                 </div>
-                <div class="form-group">
-                    <label for="gambar">Gambar Materi</label>
-                    <div class="upload-area" id="uploadArea">
-                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
-                        <p class="upload-text">Drag & drop file gambar di sini atau klik untuk memilih</p>
-                        <div class="upload-btn">Pilih File</div>
-                        <input type="file" id="gambar" accept="image/*" style="display: none;">
-                        <p class="upload-info">Format yang didukung: JPG, PNG, GIF. Maksimal ukuran: 2MB</p>
-                    </div>
-                    <div class="image-preview" id="imagePreview">
-                        <img class="preview-image" id="previewImage" src="" alt="Preview">
-                        <button type="button" class="btn btn-danger" id="removeImageBtn" style="margin-top: 10px;">Hapus Gambar</button>
-                    </div>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn btn-danger" id="cancelBtn">Batal</button>
-                    <button type="submit" class="btn btn-success">Simpan</button>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn"><i class="fas fa-save"></i> Simpan</button>
+                    <button type="button" class="btn" id="cancelBtn"><i class="fas fa-times"></i> Batal</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <div class="modal" id="bacaModal">
-        <div class="modal-content modal-wide">
-            <div class="modal-header">
-                <h2 id="bacaJudul">Judul Materi</h2>
-                <span class="close">&times;</span>
-            </div>
-            <div class="materi-detail">
-                <div class="materi-detail-header">
-                    <span class="materi-detail-date" id="bacaTanggal">Diperbarui: 12 Juni 2023</span>
-                </div>
-                <img id="bacaGambar" class="materi-detail-image" src="" alt="Gambar Materi">
-                <div class="materi-detail-content" id="bacaDeskripsi">
-                    </div>
-                <div class="form-actions">
-                    <button type="button" class="btn btn-danger" id="bacaTutupBtn">Tutup</button>
-                    <button type="button" class="btn btn-primary" id="bacaEditBtn">Edit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="image-modal" id="imageModal">
-        <span class="image-modal-close">&times;</span>
+    <!-- Modal untuk menampilkan gambar dalam ukuran besar -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-btn">&times;</span>
         <img class="image-modal-content" id="expandedImg">
     </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Sistem Manajemen Materi Safety. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Kotak Pesan Kustom (Menggantikan alert/confirm) -->
+    <div id="messageBox" class="message-box">
+        <div id="messageContent" class="message-content"></div>
+        <div id="messageActions" class="message-actions"></div>
+    </div>
 
-    <script type="module">
-        // Perubahan 1: Mengganti Firebase SDK dengan Supabase SDK
-        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-        
-        // Perubahan 2: Konfigurasi Supabase Anda
-        const SUPABASE_URL = 'https://[YOUR_SUPABASE_PROJECT_ID].supabase.co';
+    <!-- Library Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        // Pastikan Anda mengganti ini dengan URL dan kunci anon dari proyek Supabase Anda
+        const SUPABASE_URL = 'https://fmojopylouptyrrdrdrrdrd.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtb2pvcHlsb3VwdHlycmRydHhvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTk0MjU0MzcsImV4cCI6MTk3NDk1MTQzN30.I22aA6S0G-m2-yD0A3_r_5J8fA3xI0r9O_8c4Z5o9jI';
-        
-        // Perubahan 3: Inisialisasi Supabase
-        const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Elemen DOM
-            const materiGrid = document.getElementById('materiGrid');
-            const materiModal = document.getElementById('materiModal');
-            const bacaModal = document.getElementById('bacaModal');
-            const imageModal = document.getElementById('imageModal');
-            const materiForm = document.getElementById('materiForm');
-            const modalTitle = document.getElementById('modalTitle');
-            const materiId = document.getElementById('materiId');
-            const judulInput = document.getElementById('judul');
-            const deskripsiInput = document.getElementById('deskripsi');
-            const gambarInput = document.getElementById('gambar');
-            const uploadArea = document.getElementById('uploadArea');
-            const imagePreview = document.getElementById('imagePreview');
-            const previewImage = document.getElementById('previewImage');
-            const removeImageBtn = document.getElementById('removeImageBtn');
-            const tambahMateriBtn = document.getElementById('tambahMateriBtn');
-            const cancelBtn = document.getElementById('cancelBtn');
-            const closeButtons = document.querySelectorAll('.close');
-            const bacaTutupBtn = document.getElementById('bacaTutupBtn');
-            const bacaEditBtn = document.getElementById('bacaEditBtn');
-            const bacaJudul = document.getElementById('bacaJudul');
-            const bacaTanggal = document.getElementById('bacaTanggal');
-            const bacaGambar = document.getElementById('bacaGambar');
-            const bacaDeskripsi = document.getElementById('bacaDeskripsi');
-            const expandedImg = document.getElementById('expandedImg');
-            const imageModalClose = document.querySelector('.image-modal-close');
-            
-            // Variabel global
-            let currentEditId = null;
-            let selectedFile = null;
-            let materiData = [];
-            
-            // Inisialisasi
-            initEventListeners();
-            loadMateriData();
-            
-            // Perubahan 4: Menggunakan Supabase Realtime Listener
-            supabase
-                .channel('materi_changes')
-                .on('postgres_changes', { event: '*', schema: 'public', table: 'materi' }, payload => {
-                    console.log('Perubahan diterima!', payload);
-                    loadMateriData();
+        // Inisialisasi Supabase
+        const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Elemen DOM
+        const tambahMateriBtn = document.getElementById('tambahMateriBtn');
+        const materiModal = document.getElementById('materiModal');
+        const materiForm = document.getElementById('materiForm');
+        const materiGrid = document.getElementById('materi-grid');
+        const modalTitle = document.getElementById('modalTitle');
+        const materiIdInput = document.getElementById('materiId');
+        const judulInput = document.getElementById('judul');
+        const deskripsiInput = document.getElementById('deskripsi');
+        const fileInput = document.getElementById('file');
+        const fileNameSpan = document.getElementById('fileName');
+        const imagePreviewDiv = document.getElementById('image-preview');
+        const previewImage = document.getElementById('previewImage');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const closeModals = document.querySelectorAll('.close-btn');
+
+        // Elemen Modal Gambar
+        const imageModal = document.getElementById('imageModal');
+        const expandedImg = document.getElementById('expandedImg');
+
+        // Elemen Kotak Pesan Kustom
+        const messageBox = document.getElementById('messageBox');
+        const messageContent = document.getElementById('messageContent');
+        const messageActions = document.getElementById('messageActions');
+
+        let isEditing = false;
+        let selectedFile = null;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            fetchMateriRealtime();
+        });
+
+        // =========================================================
+        // FUNGSI UTAMA
+        // =========================================================
+
+        /**
+         * Mengambil data materi secara real-time dari Supabase.
+         * Menggunakan `on` untuk mendengarkan perubahan data (insert, update, delete).
+         */
+        function fetchMateriRealtime() {
+            // Gunakan metode `from` dengan nama tabel yang benar
+            supabase.from('materi')
+                .on('INSERT', (payload) => {
+                    renderMateri([payload.new]);
                 })
-                .subscribe();
+                .on('UPDATE', (payload) => {
+                    // Update tampilan materi jika ada perubahan
+                    const updatedMateri = payload.new;
+                    const card = document.getElementById(`materi-card-${updatedMateri.id}`);
+                    if (card) {
+                        const img = card.querySelector('.card-img');
+                        const h3 = card.querySelector('.card-content h3');
+                        const p = card.querySelector('.card-content p');
+                        const dateSpan = card.querySelector('.card-footer .date');
+                        img.src = updatedMateri.gambar;
+                        h3.textContent = updatedMateri.judul;
+                        p.textContent = updatedMateri.deskripsi;
+                        dateSpan.textContent = formatTanggal(updatedMateri.tanggal);
+                    }
+                })
+                .on('DELETE', (payload) => {
+                    // Hapus kartu materi dari tampilan
+                    const card = document.getElementById(`materi-card-${payload.old.id}`);
+                    if (card) {
+                        card.remove();
+                    }
+                })
+                .subscribe(); // Jangan lupa untuk subscribe!
+            
+            // Lakukan pengambilan data awal
+            fetchInitialMateri();
+        }
 
-            // Fungsi untuk memuat data dari Supabase
-            async function loadMateriData() {
-                materiGrid.innerHTML = '<div class="empty-state"><i class="fas fa-spinner fa-spin"></i><h3>Memuat materi...</h3></div>';
+        /**
+         * Mengambil data awal dari tabel materi.
+         */
+        async function fetchInitialMateri() {
+            const { data, error } = await supabase
+                .from('materi')
+                .select('*');
+
+            if (error) {
+                console.error('Error fetching initial materi:', error);
+                showMessageBox('Gagal memuat materi. Silakan coba lagi.', 'error');
+                return;
+            }
+
+            renderMateri(data);
+        }
+        
+        /**
+         * Merender materi ke dalam grid.
+         * @param {Array} materiData - Data materi yang akan ditampilkan.
+         */
+        function renderMateri(materiData) {
+            materiData.forEach(materi => {
+                const existingCard = document.getElementById(`materi-card-${materi.id}`);
+                if (existingCard) return; // Hindari duplikasi saat real-time update
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.id = `materi-card-${materi.id}`;
                 
-                // Perubahan 5: Mengganti query Firestore dengan Supabase
+                const imageUrl = materi.gambar || 'https://placehold.co/600x400/CCCCCC/333333?text=Tidak+Ada+Gambar';
+
+                card.innerHTML = `
+                    <div class="card-img-container">
+                        <img src="${imageUrl}" alt="${materi.judul}" class="card-img" onclick="window.showImage('${imageUrl}')">
+                    </div>
+                    <div class="card-content">
+                        <h3>${escapeHtml(materi.judul)}</h3>
+                        <p>${escapeHtml(materi.deskripsi)}</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="date">${formatTanggal(materi.tanggal)}</span>
+                        <div class="actions">
+                            <i class="fas fa-edit edit-btn" data-id="${materi.id}"></i>
+                            <i class="fas fa-trash-alt delete-btn" data-id="${materi.id}"></i>
+                        </div>
+                    </div>
+                `;
+                materiGrid.prepend(card); // Tambahkan di awal agar materi terbaru muncul di atas
+            });
+        }
+
+        /**
+         * Fungsi untuk menambah atau mengedit materi.
+         * @param {Event} e - Objek event dari form submit.
+         */
+        async function tambahMateri(e) {
+            e.preventDefault();
+            const judul = judulInput.value;
+            const deskripsi = deskripsiInput.value;
+            const id = materiIdInput.value;
+
+            // Tampilkan pesan loading
+            showMessageBox('Sedang memproses...', 'info', false);
+
+            try {
+                let imageUrl = previewImage.src; // Ambil URL gambar yang sudah ada
+
+                // Jika ada file baru dipilih, unggah terlebih dahulu
+                if (selectedFile) {
+                    const fileExt = selectedFile.name.split('.').pop();
+                    const fileName = `${Date.now()}.${fileExt}`;
+                    const filePath = `materi-images/${fileName}`;
+
+                    // Unggah file ke Supabase Storage
+                    const { data: uploadData, error: uploadError } = await supabase.storage
+                        .from('materi-images') // Pastikan nama bucket sama
+                        .upload(filePath, selectedFile, {
+                            cacheControl: '3600',
+                            upsert: false
+                        });
+
+                    if (uploadError) {
+                        throw uploadError;
+                    }
+                    
+                    // Ambil URL publik dari file yang diunggah
+                    const { data: publicUrlData } = supabase.storage
+                        .from('materi-images')
+                        .getPublicUrl(filePath);
+
+                    imageUrl = publicUrlData.publicUrl;
+                }
+
+                if (isEditing) {
+                    // Update materi
+                    const { error } = await supabase
+                        .from('materi')
+                        .update({ judul, deskripsi, gambar: imageUrl })
+                        .eq('id', id);
+
+                    if (error) throw error;
+
+                    showMessageBox('Materi berhasil diperbarui!', 'success');
+                } else {
+                    // Tambah materi baru
+                    const { error } = await supabase
+                        .from('materi')
+                        .insert([{ judul, deskripsi, gambar: imageUrl }]);
+                    
+                    if (error) throw error;
+
+                    showMessageBox('Materi berhasil ditambahkan!', 'success');
+                }
+                
+                // Tutup modal setelah berhasil
+                materiModal.style.display = 'none';
+                materiForm.reset();
+                resetForm();
+
+            } catch (error) {
+                console.error('Error:', error);
+                showMessageBox(`Gagal ${isEditing ? 'memperbarui' : 'menambah'} materi: ${error.message}`, 'error');
+            }
+        }
+        
+        /**
+         * Fungsi untuk menghapus materi.
+         * @param {string} id - ID materi yang akan dihapus.
+         */
+        async function hapusMateri(id) {
+            showMessageBox('Apakah Anda yakin ingin menghapus materi ini?', 'confirm', true, async () => {
+                // Tampilkan loading saat proses
+                showMessageBox('Sedang menghapus...', 'info', false);
+                try {
+                    const { data, error } = await supabase
+                        .from('materi')
+                        .delete()
+                        .eq('id', id);
+
+                    if (error) throw error;
+                    
+                    showMessageBox('Materi berhasil dihapus!', 'success');
+                } catch (error) {
+                    console.error('Error removing document:', error);
+                    showMessageBox('Gagal menghapus materi. Silakan coba lagi.', 'error');
+                }
+            });
+        }
+
+
+        // =========================================================
+        // EVENT LISTENERS DAN FUNGSI UI
+        // =========================================================
+
+        tambahMateriBtn.addEventListener('click', () => {
+            isEditing = false;
+            modalTitle.textContent = 'Tambah Materi Baru';
+            materiForm.reset();
+            resetForm();
+            materiModal.style.display = 'flex';
+        });
+
+        // Delegasi event untuk tombol edit dan hapus
+        materiGrid.addEventListener('click', async (e) => {
+            if (e.target.classList.contains('edit-btn')) {
+                const id = e.target.getAttribute('data-id');
                 const { data, error } = await supabase
                     .from('materi')
                     .select('*')
-                    .order('tanggal', { ascending: false });
+                    .eq('id', id)
+                    .single();
 
                 if (error) {
-                    console.error("Error loading data: ", error);
-                    materiGrid.innerHTML = '<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><h3>Gagal memuat materi</h3><p>Silakan refresh halaman</p></div>';
-                    return;
-                }
-                
-                materiData = data;
-                renderMateri();
-            }
-            
-            // Fungsi untuk merender materi
-            function renderMateri() {
-                if (materiData.length === 0) {
-                    materiGrid.innerHTML = `
-                        <div class="empty-state">
-                            <i class="fas fa-file-alt"></i>
-                            <h3>Belum ada materi</h3>
-                            <p>Klik "Tambah Materi Baru" untuk membuat materi pertama Anda.</p>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                materiGrid.innerHTML = '';
-                materiData.forEach(materi => {
-                    const card = document.createElement('div');
-                    card.className = 'materi-card';
-                    card.innerHTML = `
-                        <img src="${materi.gambar}" alt="${materi.judul}" class="materi-image" onclick="showImage('${materi.gambar}')">
-                        <div class="materi-content">
-                            <h3>${materi.judul}</h3>
-                            <p>${materi.deskripsi}</p>
-                            <div class="materi-actions">
-                                <button class="btn btn-info btn-baca" data-id="${materi.id}">
-                                    <i class="fas fa-book-open"></i> Baca
-                                </button>
-                                <button class="btn btn-primary btn-edit" data-id="${materi.id}">
-                                    <i class="fas fa-edit"></i> Edit
-                                </button>
-                                <button class="btn btn-danger btn-hapus" data-id="${materi.id}">
-                                    <i class="fas fa-trash"></i> Hapus
-                                </button>
-                            </div>
-                            <div class="update-info">Diperbarui: ${formatTanggal(materi.tanggal)}</div>
-                        </div>
-                    `;
-                    materiGrid.appendChild(card);
-                });
-                
-                // Tambahkan event listeners untuk tombol dalam card
-                document.querySelectorAll('.btn-baca').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const id = this.getAttribute('data-id');
-                        bacaMateri(id);
-                    });
-                });
-                
-                document.querySelectorAll('.btn-edit').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const id = this.getAttribute('data-id');
-                        editMateri(id);
-                    });
-                });
-                
-                document.querySelectorAll('.btn-hapus').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const id = this.getAttribute('data-id');
-                        hapusMateri(id);
-                    });
-                });
-            }
-            
-            // Fungsi untuk inisialisasi event listeners
-            function initEventListeners() {
-                // Tombol tambah materi
-                tambahMateriBtn.addEventListener('click', function() {
-                    currentEditId = null;
-                    modalTitle.textContent = 'Tambah Materi Baru';
-                    materiForm.reset();
-                    imagePreview.style.display = 'none';
-                    selectedFile = null;
-                    materiModal.style.display = 'flex';
-                });
-                
-                // Form submit
-                materiForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    simpanMateri();
-                });
-                
-                // Tombol batal
-                cancelBtn.addEventListener('click', function() {
-                    materiModal.style.display = 'none';
-                });
-                
-                // Tombol tutup modal
-                closeButtons.forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        materiModal.style.display = 'none';
-                        bacaModal.style.display = 'none';
-                    });
-                });
-                
-                // Tombol tutup di modal baca
-                bacaTutupBtn.addEventListener('click', function() {
-                    bacaModal.style.display = 'none';
-                });
-                
-                // Tombol edit di modal baca
-                bacaEditBtn.addEventListener('click', function() {
-                    bacaModal.style.display = 'none';
-                    editMateri(currentEditId);
-                });
-                
-                // Upload area
-                uploadArea.addEventListener('click', function() {
-                    gambarInput.click();
-                });
-                
-                // Drag and drop
-                uploadArea.addEventListener('dragover', function(e) {
-                    e.preventDefault();
-                    uploadArea.classList.add('dragover');
-                });
-                
-                uploadArea.addEventListener('dragleave', function() {
-                    uploadArea.classList.remove('dragover');
-                });
-                
-                uploadArea.addEventListener('drop', function(e) {
-                    e.preventDefault();
-                    uploadArea.classList.remove('dragover');
-                    
-                    if (e.dataTransfer.files.length) {
-                        gambarInput.files = e.dataTransfer.files;
-                        selectedFile = e.dataTransfer.files[0];
-                        handleImageUpload(e.dataTransfer.files[0]);
-                    }
-                });
-                
-                // Perubahan input file
-                gambarInput.addEventListener('change', function() {
-                    if (this.files && this.files[0]) {
-                        selectedFile = this.files[0];
-                        handleImageUpload(this.files[0]);
-                    }
-                });
-                
-                // Tombol hapus gambar
-                removeImageBtn.addEventListener('click', function() {
-                    gambarInput.value = '';
-                    imagePreview.style.display = 'none';
-                    selectedFile = null;
-                });
-                
-                // Modal gambar besar
-                imageModalClose.addEventListener('click', function() {
-                    imageModal.style.display = 'none';
-                });
-                
-                // Klik di luar modal gambar untuk menutup
-                imageModal.addEventListener('click', function(e) {
-                    if (e.target === imageModal) {
-                        imageModal.style.display = 'none';
-                    }
-                });
-            }
-            
-            // Fungsi untuk menangani upload gambar
-            function handleImageUpload(file) {
-                // Validasi tipe file
-                const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
-                if (!validTypes.includes(file.type)) {
-                    alert('Format file tidak didukung. Harap unggah file JPG, PNG, atau GIF.');
-                    return;
-                }
-                
-                // Validasi ukuran file (maksimal 2MB)
-                if (file.size > 2 * 1024 * 1024) {
-                    alert('Ukuran file terlalu besar. Maksimal 2MB.');
-                    return;
-                }
-                
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    previewImage.src = e.target.result;
-                    imagePreview.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-            
-            // Fungsi untuk menyimpan materi
-            function simpanMateri() {
-                const judul = judulInput.value.trim();
-                const deskripsi = deskripsiInput.value.trim();
-                
-                if (!judul || !deskripsi) {
-                    alert('Judul dan deskripsi harus diisi!');
-                    return;
-                }
-                
-                // Jika ada file gambar yang dipilih, upload dulu
-                if (selectedFile) {
-                    uploadImageAndSaveMateri(judul, deskripsi);
-                } else {
-                    // Jika tidak ada gambar baru, simpan langsung
-                    saveMateriToSupabase(judul, deskripsi, previewImage.src || 'https://via.placeholder.com/400x250?text=Gambar+Materi');
-                }
-            }
-            
-            // Perubahan 6: Mengganti fungsi upload Firebase Storage dengan Supabase Storage
-            async function uploadImageAndSaveMateri(judul, deskripsi) {
-                // Tampilkan indikator loading
-                const submitBtn = materiForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengupload...';
-                submitBtn.disabled = true;
-                
-                const fileName = `${Date.now()}_${selectedFile.name}`;
-                
-                const { data: uploadData, error: uploadError } = await supabase.storage
-                    .from('materi-images') // Ganti dengan nama bucket Anda
-                    .upload(fileName, selectedFile);
-
-                if (uploadError) {
-                    console.error("Error uploading image: ", uploadError);
-                    alert('Gagal mengupload gambar. Silakan coba lagi.');
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
+                    console.error('Error fetching materi for edit:', error);
+                    showMessageBox('Gagal mengambil data materi. Silakan coba lagi.', 'error');
                     return;
                 }
 
-                // Perubahan 7: Mendapatkan URL publik dari file yang diunggah
-                const { data: { publicUrl } } = supabase.storage
-                    .from('materi-images')
-                    .getPublicUrl(fileName);
-
-                saveMateriToSupabase(judul, deskripsi, publicUrl);
-                
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }
-            
-            // Perubahan 8: Mengganti fungsi Firestore dengan Supabase
-            async function saveMateriToSupabase(judul, deskripsi, gambarUrl) {
-                const materiPayload = {
-                    judul,
-                    deskripsi,
-                    gambar: gambarUrl,
-                };
-                
-                let result;
-                if (currentEditId) {
-                    // Update materi yang sudah ada
-                    result = await supabase
-                        .from('materi')
-                        .update(materiPayload)
-                        .eq('id', currentEditId);
-                    
-                    if (!result.error) {
-                        materiModal.style.display = 'none';
-                        alert('Materi berhasil diperbarui!');
-                    }
-                } else {
-                    // Tambah materi baru
-                    result = await supabase
-                        .from('materi')
-                        .insert([materiPayload]);
-                        
-                    if (!result.error) {
-                        materiModal.style.display = 'none';
-                        alert('Materi berhasil ditambahkan!');
-                    }
-                }
-
-                if (result.error) {
-                    console.error("Error saving document: ", result.error);
-                    alert('Gagal menyimpan materi. Silakan coba lagi.');
-                }
-            }
-            
-            // Fungsi untuk membaca materi
-            function bacaMateri(id) {
-                const materi = materiData.find(m => m.id === id);
-                if (!materi) return;
-                
-                currentEditId = id;
-                bacaJudul.textContent = materi.judul;
-                bacaTanggal.textContent = `Diperbarui: ${formatTanggal(materi.tanggal)}`;
-                bacaGambar.src = materi.gambar;
-                bacaGambar.alt = materi.judul;
-                bacaGambar.onclick = function() {
-                    showImage(materi.gambar);
-                };
-                
-                // Format deskripsi dengan paragraf
-                bacaDeskripsi.innerHTML = '';
-                const paragraphs = materi.deskripsi.split('\n');
-                paragraphs.forEach(p => {
-                    if (p.trim()) {
-                        const para = document.createElement('p');
-                        para.textContent = p;
-                        bacaDeskripsi.appendChild(para);
-                    }
-                });
-                
-                bacaModal.style.display = 'flex';
-            }
-            
-            // Fungsi untuk mengedit materi
-            function editMateri(id) {
-                const materi = materiData.find(m => m.id === id);
-                if (!materi) return;
-                
-                currentEditId = id;
+                isEditing = true;
                 modalTitle.textContent = 'Edit Materi';
-                materiId.value = materi.id;
-                judulInput.value = materi.judul;
-                deskripsiInput.value = materi.deskripsi;
+                materiIdInput.value = data.id;
+                judulInput.value = data.judul;
+                deskripsiInput.value = data.deskripsi;
                 
-                if (materi.gambar && materi.gambar !== 'https://via.placeholder.com/400x250?text=Gambar+Materi') {
-                    previewImage.src = materi.gambar;
-                    imagePreview.style.display = 'block';
+                // Tampilkan gambar pratinjau jika ada
+                if (data.gambar) {
+                    previewImage.src = data.gambar;
+                    imagePreviewDiv.style.display = 'block';
+                    fileNameSpan.textContent = data.gambar.split('/').pop();
                 } else {
-                    imagePreview.style.display = 'none';
+                    imagePreviewDiv.style.display = 'none';
+                    fileNameSpan.textContent = 'Belum ada file dipilih';
                 }
-                
-                selectedFile = null;
+
                 materiModal.style.display = 'flex';
             }
-            
-            // Perubahan 9: Mengganti fungsi hapus Firestore dengan Supabase
-            async function hapusMateri(id) {
-                if (!confirm('Apakah Anda yakin ingin menghapus materi ini?')) return;
-                
-                const { error } = await supabase
-                    .from('materi')
-                    .delete()
-                    .eq('id', id);
 
-                if (error) {
-                    console.error("Error removing document: ", error);
-                    alert('Gagal menghapus materi. Silakan coba lagi.');
-                } else {
-                    alert('Materi berhasil dihapus!');
-                }
-            }
-            
-            // Fungsi untuk menampilkan gambar dalam modal besar
-            window.showImage = function(src) {
-                expandedImg.src = src;
-                imageModal.style.display = 'block';
-            };
-            
-            // Fungsi untuk memformat tanggal
-            function formatTanggal(dateString) {
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                };
-                return new Date(dateString).toLocaleDateString('id-ID', options);
+            if (e.target.classList.contains('delete-btn')) {
+                const id = e.target.getAttribute('data-id');
+                hapusMateri(id);
             }
         });
+
+        // Logika untuk menampilkan file yang dipilih
+        fileInput.addEventListener('change', (e) => {
+            selectedFile = e.target.files[0];
+            if (selectedFile) {
+                fileNameSpan.textContent = selectedFile.name;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewImage.src = e.target.result;
+                    imagePreviewDiv.style.display = 'block';
+                };
+                reader.readAsDataURL(selectedFile);
+            } else {
+                fileNameSpan.textContent = 'Belum ada file dipilih';
+                imagePreviewDiv.style.display = 'none';
+            }
+        });
+        
+        // Menutup modal
+        closeModals.forEach(btn => {
+            btn.addEventListener('click', () => {
+                materiModal.style.display = 'none';
+                imageModal.style.display = 'none';
+            });
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            materiModal.style.display = 'none';
+        });
+
+        materiForm.addEventListener('submit', tambahMateri);
+
+        // Menutup modal saat klik di luar
+        window.addEventListener('click', (e) => {
+            if (e.target === materiModal) {
+                materiModal.style.display = 'none';
+            }
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
+            if (e.target === messageBox) {
+                 messageBox.style.display = 'none';
+            }
+        });
+
+        // Fungsi untuk menampilkan gambar dalam modal besar
+        window.showImage = function(src) {
+            expandedImg.src = src;
+            imageModal.style.display = 'block';
+        };
+
+        // =========================================================
+        // UTILITAS
+        // =========================================================
+        
+        /**
+         * Menampilkan kotak pesan kustom (menggantikan alert/confirm).
+         * @param {string} message - Pesan yang akan ditampilkan.
+         * @param {string} type - 'success', 'error', 'info', atau 'confirm'.
+         * @param {boolean} showConfirmButtons - Tampilkan tombol OK/Cancel.
+         * @param {function} onConfirm - Callback saat tombol OK diklik.
+         */
+        function showMessageBox(message, type, showConfirmButtons = false, onConfirm = null) {
+            messageContent.textContent = message;
+            messageActions.innerHTML = '';
+            
+            if (showConfirmButtons) {
+                const okBtn = document.createElement('button');
+                okBtn.className = 'btn';
+                okBtn.textContent = 'OK';
+                okBtn.onclick = () => {
+                    if (onConfirm) onConfirm();
+                    messageBox.style.display = 'none';
+                };
+
+                const cancelBtn = document.createElement('button');
+                cancelBtn.className = 'btn';
+                cancelBtn.textContent = 'Batal';
+                cancelBtn.onclick = () => {
+                    messageBox.style.display = 'none';
+                };
+
+                messageActions.appendChild(okBtn);
+                messageActions.appendChild(cancelBtn);
+
+            } else {
+                const closeBtn = document.createElement('button');
+                closeBtn.className = 'btn';
+                closeBtn.textContent = 'Tutup';
+                closeBtn.onclick = () => {
+                    messageBox.style.display = 'none';
+                };
+                messageActions.appendChild(closeBtn);
+            }
+
+            messageBox.style.display = 'block';
+        }
+
+        /**
+         * Mengembalikan form ke keadaan semula.
+         */
+        function resetForm() {
+            selectedFile = null;
+            materiIdInput.value = '';
+            fileNameSpan.textContent = 'Belum ada file dipilih';
+            imagePreviewDiv.style.display = 'none';
+            materiModal.style.display = 'none';
+        }
+
+        /**
+         * Memformat tanggal ke format lokal.
+         * @param {string} dateString - String tanggal dari Supabase.
+         * @returns {string} - Tanggal yang diformat.
+         */
+        function formatTanggal(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('id-ID', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+        
+        /**
+         * Mengubah karakter khusus menjadi entitas HTML untuk mencegah XSS.
+         * @param {string} str - String yang akan di-escape.
+         * @returns {string} - String yang sudah di-escape.
+         */
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
     </script>
 </body>
-
 </html>
-
